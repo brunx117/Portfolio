@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of BRUNTHA M, a Computer Science Engineering student learning web development.">
+  <title>BRUNTHA M | Developer Portfolio</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #5d687b;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --line: #dce3ee;
+      --soft: #eaf1ff;
+      --shadow: 0 14px 40px rgba(25, 45, 80, .10);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(circle at top right, #e8efff 0, transparent 32%), var(--bg);
+      color: var(--text); line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1080px, 90%); margin: auto; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(245,247,251,.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 16px 0; }
+    .brand { font-weight: 850; letter-spacing: .08em; color: var(--accent-dark); }
+    .navlinks { display: flex; flex-wrap: wrap; gap: 20px; color: var(--muted); font-size: .93rem; }
+    .navlinks a:hover { color: var(--accent-dark); }
+    .hero { display: grid; grid-template-columns: 1.35fr .8fr; align-items: center; gap: 42px; padding: 82px 0 70px; }
+    .eyebrow { display: inline-block; color: var(--accent-dark); background: var(--soft); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; font-size: .83rem; font-weight: 700; margin-bottom: 18px; }
+    h1 { font-size: clamp(2.5rem, 6vw, 4.6rem); line-height: 1.08; letter-spacing: -.045em; margin-bottom: 18px; }
+    h1 span { color: var(--accent); }
+    .intro { color: var(--muted); max-width: 620px; font-size: 1.08rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
+    .btn { display: inline-block; padding: 11px 18px; border-radius: 12px; font-weight: 750; border: 1px solid var(--accent); transition: transform .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .primary { background: var(--accent); color: white; }
+    .secondary { color: var(--accent-dark); background: white; }
+    .profile-card { background: linear-gradient(145deg, #eaf1ff, #fff 70%); border: 1px solid var(--line); border-radius: 28px; padding: 28px; box-shadow: var(--shadow); text-align: center; }
+    .avatar { width: 148px; height: 148px; margin: 4px auto 18px; border-radius: 50%; display: grid; place-items: center; color: white; font-size: 2.4rem; font-weight: 850; letter-spacing: .04em; background: linear-gradient(135deg, #2563eb, #38bdf8); box-shadow: 0 10px 25px #2563eb2b; }
+    .profile-card h2 { font-size: 1.25rem; }
+    .profile-card p { color: var(--muted); font-size: .94rem; margin-top: 5px; }
+    section { padding: 48px 0; }
+    .section-head { margin-bottom: 23px; }
+    .section-head p { color: var(--accent-dark); font-size: .8rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    h2.section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.2; margin-top: 5px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 24px; box-shadow: 0 8px 24px rgba(25,45,80,.045); }
+    .about-text { color: var(--muted); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .card h3 { margin-bottom: 8px; font-size: 1.08rem; }
+    .card p { color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+    .tag { background: var(--soft); color: var(--accent-dark); border: 1px solid var(--line); border-radius: 999px; padding: 6px 11px; font-size: .88rem; font-weight: 650; }
+    .project-label { color: var(--accent-dark) !important; font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; margin-bottom: 7px; }
+    .contact-card { display: flex; justify-content: space-between; align-items: center; gap: 24px; background: linear-gradient(120deg, #eaf1ff, #fff); }
+    footer { padding: 28px 0 35px; color: var(--muted); text-align: center; border-top: 1px solid var(--line); font-size: .9rem; }
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; padding: 56px 0 35px; gap: 28px; }
+      .profile-card { max-width: 400px; width: 100%; margin: auto; }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      nav { align-items: flex-start; flex-direction: column; }
+      .navlinks { gap: 12px; }
+      .contact-card { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="#home">BRUNTHA M.</a>
+      <div class="navlinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#journey">Journey</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="home">
+      <div>
+        <span class="eyebrow">Computer Science Engineering Student</span>
+        <h1>Hi, I'm <span>BRUNTHA M.</span></h1>
+        <p class="intro">I'm learning web development and building my skills one step at a time. I enjoy turning ideas into clean, useful, and responsive web experiences.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my work</a>
+          <a class="btn secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <aside class="profile-card">
+        <div class="avatar" aria-hidden="true">BM</div>
+        <h2>Future Web Developer</h2>
+        <p>Learning • Practising • Building</p>
+      </aside>
+    </section>
+
+    <section class="wrap" id="about">
+      <div class="section-head"><p>About me</p><h2 class="section-title">A little about my journey</h2></div>
+      <div class="card">
+        <p class="about-text">I'm a II Year B.E. Computer Science and Engineering student at JCT College of Engineering and Technology, Coimbatore. I'm currently strengthening my HTML fundamentals and working towards CSS, JavaScript, and full-stack development. My goal is to keep learning by practising concepts and creating projects of my own.</p>
+      </div>
+    </section>
+
+    <section class="wrap" id="skills">
+      <div class="section-head"><p>What I'm learning</p><h2 class="section-title">Skills & tools</h2></div>
+      <div class="grid-3">
+        <article class="card"><h3>Web foundations</h3><p>Building a strong base in accessible, well-structured web pages.</p><div class="tags"><span class="tag">HTML</span><span class="tag">Semantic HTML</span><span class="tag">Accessibility basics</span></div></article>
+        <article class="card"><h3>Currently exploring</h3><p>Next steps in my learning path for interactive and styled websites.</p><div class="tags"><span class="tag">CSS</span><span class="tag">JavaScript</span></div></article>
+        <article class="card"><h3>Developer tools</h3><p>Getting familiar with tools that help me write, test, and track code.</p><div class="tags"><span class="tag">VS Code</span><span class="tag">Git & GitHub</span></div></article>
+      </div>
+    </section>
+
+    <section class="wrap" id="journey">
+      <div class="section-head"><p>My journey</p><h2 class="section-title">Learning with purpose</h2></div>
+      <div class="grid-2">
+        <article class="card"><h3>Education</h3><p><strong>II Year B.E. Computer Science and Engineering</strong><br>JCT College of Engineering and Technology, Coimbatore</p></article>
+        <article class="card"><h3>Current focus</h3><p>Practising HTML fundamentals, learning semantic structure, and preparing to move into CSS and JavaScript projects.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap" id="projects">
+      <div class="section-head"><p>Selected practice</p><h2 class="section-title">Projects & practice</h2></div>
+      <div class="grid-3">
+        <article class="card"><p class="project-label">HTML practice</p><h3>Bookstore Page</h3><p>A practice page created to improve my understanding of HTML structure and content.</p></article>
+        <article class="card"><p class="project-label">HTML media</p><h3>Video & Audio Player</h3><p>A small page practising how to add video and audio elements to a webpage.</p></article>
+        <article class="card"><p class="project-label">Portfolio</p><h3>Personal Portfolio Website</h3><p>This responsive portfolio page, created to introduce myself and document my development journey.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap" id="contact">
+      <div class="card contact-card">
+        <div><div class="section-head"><p>Contact</p><h2 class="section-title">Let's connect</h2></div><p class="about-text">Interested in learning, collaborating, or sharing project feedback? Feel free to reach out.</p></div>
+        <a class="btn primary" href="mailto:">Add your email</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">© 2026 BRUNTHA M. Made with care while learning web development.</div></footer>
+</body>
+</html>
